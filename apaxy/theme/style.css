@@ -121,14 +121,14 @@ a:hover {
     Table (directory listing)
 \*------------------------------------*/
 
-table {
+table#indexlist {
   width: 100%;
   border-collapse: collapse;
   font-size: .875em;
   color: rgb(143, 143, 143);
 }
 @media (prefers-color-scheme: dark) {
-  table {
+  table#indexlist {
     color: rgb(111, 111, 111);
   }
 }
@@ -142,22 +142,22 @@ table {
   }
 }
 
-tr {
+#indexlist tr {
   outline: 0;
   border: 0;
 }
 
-tr.indexhead{
+#indexlist tr.indexhead{
   border-bottom: 2px solid #999;
 }
 
-tr:not(.indexhead):hover{
+#indexlist tr:not(.indexhead):hover{
   box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25) inset;
   -moz-box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.25) inset;
 }
 
-th {
+#indexlist th {
   text-align: left;
   font-size: .75em;
   padding-right: 20px;
@@ -165,30 +165,30 @@ th {
 
 /* 2nd Column: Filename */
 
-th + th {
+#indexlist th + th {
   width: 65%;
 }
 
 /* 3rd Column: Last Modified */
-th + th + th {
+#indexlist th + th + th {
 }
 
 /* 4th Column: Size */
-th + th + th + th {
+#indexlist th + th + th + th {
   width: 5%;
 }
 
-tr th:first-of-type {
+#indexlist tr th:first-of-type {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-tr td:first-of-type {
+#indexlist tr td:first-of-type {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-td {
+#indexlist td {
   padding: 5px 0;
   outline: 0;
   border: 0;
@@ -201,16 +201,16 @@ td {
   -webkit-transition: background 300ms ease;
 }
 @media (prefers-color-scheme: dark) {
-  td {
+  #indexlist td {
     border-color: #424242;
   }
 }
 
-td a {
+#indexlist td a {
   display: block;
 }
 
-tr.parent a[href^="/"] {
+#indexlist tr.parent a[href^="/"] {
   color: #9099A3;
 }
 

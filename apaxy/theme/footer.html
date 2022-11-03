@@ -1,6 +1,5 @@
-  <div class="block">
-    {FOOTER-MESSAGE}
-  </div><!--/.postlisting-->
+  <div class="block markdown-block">
+  </div>
 
 </div><!--/.wrapper-->
 
@@ -8,3 +7,9 @@
   Apaxy by <a href="https://twitter.com/adamwhitcroft">@adamwhitcroft</a>
 </div><!--/.footer-->
 <script src={FOLDERNAME}/theme/apaxy.js></script>
+<script>
+  showdown.setFlavor('github');
+  const conv = new showdown.Converter();
+  const container = document.getElementsByClassName("markdown-body")[0];
+  fetch(document.location.href + '/README.md', {headers: {'Accept': 'text/markdown', cache: 'no-cache'}}).then(res => res.status == 404 ? '' : res.text()).then(res => {container.innerHTML = conv.makeHtml(res)})
+</script>

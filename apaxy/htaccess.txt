@@ -37,12 +37,19 @@ IndexOptions +Charset=UTF-8 +FancyIndexing +FoldersFirst +HTMLTable +IconsAreLin
 
 # favicon & meta viewport
 IndexHeadInsert "\
-        <link rel=\"shortcut icon\" href=\"{FOLDERNAME}/theme/favicon.ico\" />\
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />"
+        <link rel=\"shortcut icon\" href=\"/theme/favicon.ico\" />\
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\
+        <meta charset=\"utf-8\"/>\
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.1.0/github-markdown.min.css\"/>\
+        <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js\"></script>"
 
 # hide ".htaccess" file and "/theme" directory
 IndexIgnore .htaccess /theme
 
+RewriteEngine on
+RewriteCond %{HTTP_ACCEPT} !text\/markdown
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} -f
+RewriteRule \.md$ {FOLDERNAME}/theme/markdown.html [PT]
 
 #
 # general icons (blank, directory, parent directory)
